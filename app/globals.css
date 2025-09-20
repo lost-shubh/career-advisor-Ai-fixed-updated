@@ -1,0 +1,311 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Enhanced color system with proper contrast ratios */
+  --background: #ffffff;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-foreground: #111827;
+  --popover: #ffffff;
+  --popover-foreground: #111827;
+  --primary: #0891b2;
+  --primary-foreground: #ffffff;
+  --secondary: #0ea5e9;
+  --secondary-foreground: #ffffff;
+  --muted: #f3f4f6;
+  --muted-foreground: #4b5563;
+  --accent: #0ea5e9;
+  --accent-foreground: #ffffff;
+  --destructive: #dc2626;
+  --destructive-foreground: #ffffff;
+  --border: #d1d5db;
+  --input: #f9fafb;
+  --ring: #0891b2;
+  --chart-1: #0ea5e9;
+  --chart-2: #0891b2;
+  --chart-3: #f97316;
+  --chart-4: #ec4899;
+  --chart-5: #dc2626;
+  --radius: 0.5rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #111827;
+  --sidebar-primary: #0891b2;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #0ea5e9;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #d1d5db;
+  --sidebar-ring: #0891b2;
+}
+
+.dark {
+  /* Improved dark mode colors with better contrast */
+  --background: #0f172a;
+  --foreground: #f8fafc;
+  --card: #1e293b;
+  --card-foreground: #f8fafc;
+  --popover: #1e293b;
+  --popover-foreground: #f8fafc;
+  --primary: #0ea5e9;
+  --primary-foreground: #0f172a;
+  --secondary: #0891b2;
+  --secondary-foreground: #ffffff;
+  --muted: #334155;
+  --muted-foreground: #e2e8f0;
+  --accent: #0ea5e9;
+  --accent-foreground: #0f172a;
+  --destructive: #ef4444;
+  --destructive-foreground: #f8fafc;
+  --border: #475569;
+  --input: #334155;
+  --ring: #0ea5e9;
+  --chart-1: #0ea5e9;
+  --chart-2: #0891b2;
+  --chart-3: #f97316;
+  --chart-4: #ec4899;
+  --chart-5: #ef4444;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --sidebar: #1e293b;
+  --sidebar-foreground: #f8fafc;
+  --sidebar-primary: #0ea5e9;
+  --sidebar-primary-foreground: #0f172a;
+  --sidebar-accent: #0891b2;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #475569;
+  --sidebar-ring: #0ea5e9;
+}
+
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains-mono);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+    /* Ensure high contrast text */
+    color: var(--foreground);
+    background-color: var(--background);
+  }
+
+  /* Enhanced styling classes with proper contrast */
+  .theme-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  .card-enhanced {
+    @apply bg-card backdrop-blur-sm border border-border shadow-sm hover:shadow-md transition-all duration-200;
+    background-color: var(--card);
+    color: var(--card-foreground);
+  }
+
+  .btn-enhanced {
+    @apply transition-all duration-200 hover:scale-105 active:scale-95;
+  }
+
+  .focus-enhanced:focus-visible {
+    @apply ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
+
+  /* Fix tab button contrast issues with better hover states */
+  [role="tablist"] button {
+    color: var(--muted-foreground) !important;
+    background-color: transparent !important;
+    transition: all 0.2s ease-in-out !important;
+  }
+
+  [role="tablist"] button[data-state="active"] {
+    color: var(--foreground) !important;
+    background-color: var(--background) !important;
+    border-color: var(--border) !important;
+  }
+
+  [role="tablist"] button:hover {
+    color: var(--foreground) !important;
+    background-color: var(--muted) !important;
+  }
+
+  /* Enhanced hover states for all interactive elements */
+  button:hover,
+  [role="button"]:hover,
+  .hover-enhanced:hover {
+    background-color: var(--muted) !important;
+    color: var(--foreground) !important;
+    transition: all 0.2s ease-in-out !important;
+  }
+
+  /* Fix card hover states */
+  .card:hover,
+  [data-card]:hover {
+    background-color: var(--card) !important;
+    border-color: var(--border) !important;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1) !important;
+  }
+
+  .dark .card:hover,
+  .dark [data-card]:hover {
+    box-shadow: 0 4px 6px -1px rgb(255 255 255 / 0.1), 0 2px 4px -2px rgb(255 255 255 / 0.05) !important;
+  }
+
+  /* Fix navigation and menu hover states */
+  nav a:hover,
+  .nav-item:hover,
+  [data-nav-item]:hover {
+    background-color: var(--muted) !important;
+    color: var(--foreground) !important;
+    border-radius: 0.375rem !important;
+  }
+
+  /* Ensure all text elements have proper contrast */
+  .text-foreground {
+    color: var(--foreground) !important;
+  }
+
+  .text-muted-foreground {
+    color: var(--muted-foreground) !important;
+  }
+
+  .bg-background {
+    background-color: var(--background) !important;
+  }
+
+  .bg-card {
+    background-color: var(--card) !important;
+  }
+
+  .bg-muted {
+    background-color: var(--muted) !important;
+  }
+
+  /* Fix button text visibility with proper contrast */
+  .bg-transparent {
+    background-color: transparent !important;
+    color: var(--foreground) !important;
+  }
+
+  .bg-transparent:hover {
+    background-color: var(--muted) !important;
+    color: var(--foreground) !important;
+  }
+
+  /* Fix card content contrast */
+  .bg-muted\/50 {
+    background-color: var(--muted) !important;
+    color: var(--foreground) !important;
+  }
+
+  /* Ensure headings are visible */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--foreground) !important;
+  }
+
+  /* Fix tab content background */
+  [role="tabpanel"] {
+    background-color: transparent !important;
+  }
+
+  /* Fix specific tab styling issues */
+  .bg-muted\/50 {
+    background-color: var(--muted) !important;
+    opacity: 1 !important;
+  }
+
+  /* Override any low contrast backgrounds */
+  .bg-primary\/5 {
+    background-color: var(--muted) !important;
+    color: var(--foreground) !important;
+  }
+
+  .bg-secondary\/5 {
+    background-color: var(--muted) !important;
+    color: var(--foreground) !important;
+  }
+
+  /* Fix badge contrast */
+  .bg-secondary {
+    background-color: var(--secondary) !important;
+    color: var(--secondary-foreground) !important;
+  }
+
+  .bg-primary {
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+  }
+
+  /* Add specific hover fixes for common problematic elements */
+  .hover\:bg-white:hover {
+    background-color: var(--muted) !important;
+    color: var(--foreground) !important;
+  }
+
+  .dark .hover\:bg-white:hover {
+    background-color: var(--muted) !important;
+    color: var(--foreground) !important;
+  }
+
+  /* Fix dropdown and select hover states */
+  [role="option"]:hover,
+  [role="menuitem"]:hover,
+  .dropdown-item:hover {
+    background-color: var(--muted) !important;
+    color: var(--foreground) !important;
+  }
+
+  /* Ensure proper contrast for all interactive states */
+  .focus\:ring-white:focus {
+    --tw-ring-color: var(--ring) !important;
+  }
+
+  .focus\:border-white:focus {
+    border-color: var(--border) !important;
+  }
+}
