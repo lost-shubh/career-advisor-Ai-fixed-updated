@@ -54,7 +54,7 @@ Career & Skills Advisor helps users discover career paths, identify skill gaps a
    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFmb2ZoZ25pZGhmYW9lY3dxdWFrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTgyODczMjcsImV4cCI6MjA3Mzg2MzMyN30.L8EImRrnxEBx9F8yhzIfq45Jet5YhXDeGyPmgccK25s
 
 # Google / Gemini AI
-   GOOGLE_AI_API_KEY= AIzaSyAt_KkBWSW_kkNuqoGrjBzkra0LZyN2OxI 
+   GOOGLE_AI_API_KEY= AIzaSyAt_KkBWSW_kkNuqoGrjBzkra0LZyN2Ox 
 
 # Google OAuth
 GOOGLE_CLIENT_ID=616761921672-tsepuk6jkocf792urkoh2paso5i9ne89.apps.googleusercontent.com
